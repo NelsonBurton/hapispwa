@@ -1,0 +1,49 @@
+<head>
+  <title>Users</title>
+</head>
+ 
+<body>
+  <div class="container">
+    <header>
+      <h1>Users ({{userCount}})</h1>
+
+        <h4>Register a new user:</h4>
+
+      <form class="new-user">
+        <input type="text" name="email" placeholder="Enter your email address" />
+        <input type="password" name="password" placeholder="Password (must be 8 chars and at least 1 numeric)" />
+        <input type="submit" value="Submit">
+
+      </form>
+
+    </header>
+ 
+    <ul>
+      {{#each users}}
+        {{> user}}
+        {{#if visible this._id}}
+          <ul>{{#each tokens this._id}}
+                {{>token}}
+              {{/each}}
+         </ul>
+         {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+
+<template name="user">
+  <li class="toggle-visible" >
+    <button class="delete">&times;</button>
+    <button class="add-token">Add token&plus;</button>
+    <span class="text">{{username}}</span>
+    <button class="edit">✎</button>
+  </li>
+</template>
+ 
+<template name="token">
+  <li class="token">
+    <button class="delete">&times;</button>
+    <span class="text">{{tokenString}}</span>
+  </li>
+</template>
