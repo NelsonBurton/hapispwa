@@ -16,7 +16,7 @@ Running the Code
     $ meteor remove autopublish
     $ meteor remove insecure
 
-    # testing frameworks
+    # testing packages
     $ meteor add sanjo:jasmine
     $ meteor add velocity:html-reporter
 
@@ -26,4 +26,9 @@ Running the Code
 
 Understanding the code
 -----------
-There are 3 main files, plus some unit tests in the tests directory. All the Javascript code is in hapispwa.js (includes both server and client code). There is a small amount of templating in the html (that allows the data to be printed).
+There are 3 important folders:
+-lib- run on both client and server
+-server- code run only on the server (Meteor methods, db writes)
+-client- code run only on client (Templating, Event handling, etc)
+
+There is a small amount of templating in the html (that allows the data to be printed). Styling is in hapispwa.css
